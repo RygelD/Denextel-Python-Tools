@@ -20,6 +20,7 @@ Used for converting RGB colours to hex
     b = list(a)
     b.pop(1)
     b.pop(0)
+    
     if len(b) < 2:
         c = '0' + b[0]
     else:
@@ -28,40 +29,38 @@ Used for converting RGB colours to hex
 
 class Screen(Frame):
   
-    def __init__(self,mod=''):
+    def __init__(self,title='DXL',mod=''):
         if mod != 'p':
             super().__init__()   
          
-            self.initG()
-            self.drawpx(5,5)
-        
-        
+            self.initG() 
+        self.title = title
     def initG(self):
-      
-        self.master.title("Lines")        
+        """ Activates the canvas
+"""
+        self.master.title(title)        
         self.pack(fill=BOTH, expand=1)
-
         self.canvas = Canvas(self)
-    def drawpx(self,x,y):
-        canvas = self.canvas
-        r = 255
-        g = 000
-        b = 000
-        canvas.create_rectangle(x,y,x,y,outline='#'+str(shex(r))+str(shex(g))+str(shex(b)))
-
         
+    def drawpx(self,xy,rgb=(0,0,0)):
+        """ Draw a pixel at (x,y), colour (R,G,B) (default colour is black)
+"""
+        r = rgb(0)
+        g = rgb(1)
+        b = rgb(2)
+        canvas = self.canvas
+        canvas.create_rectangle(x,y,x,y,outline='#'+str(shex(r))+str(shex(g))+str(shex(b)))        
         canvas.pack(fill=BOTH, expand=1)
 
 
-def main(item,l,w):
-  
+def main(item,length,width): 
     root = Tk()
     ex = item
-    root.geometry("400x250+"+str(l)+"+"+str(w))
+    root.geometry("0x0+"+str(length)+"+"+str(width))
     root.mainloop()
-def mkcanvas(name,l,w):
+    
+def mkcanvas(name,length,width)
+    """ Safe method to make a screen """
     exec(name+' = Screen("p")')
-    exec('main(' + name + ', '+  str(l) + ', ' + str(w) + ')')
-#ex = Example()
-#main(Tk,ex)
-#ex.drawpx(15,15)
+    exec('main(' + name + ', '+  str(length) + ', ' + str(width) + ')')
+
