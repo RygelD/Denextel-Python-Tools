@@ -2,9 +2,9 @@
 # DPGED.PY
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
-# version = 0.1
 
-__version__ = 0.1
+__version__ = 0.2.1
+
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
     """ Convert numbers from 0 to 255 to 2 digit hexadecimal numbers (for RGB purposes)
@@ -59,8 +59,8 @@ def main(item,length,width):
     root.geometry("0x0+"+str(length)+"+"+str(width))
     root.mainloop()
     
-def mkcanvas(name,length,width)
+def mkcanvas(name,length,width,screenname='')
     """ Safe method to make a screen """
-    exec(name+' = Screen("p")')
+    exec(name+' = Screen("p", '+screenname +')')
     exec('main(' + name + ', '+  str(length) + ', ' + str(width) + ')')
 
