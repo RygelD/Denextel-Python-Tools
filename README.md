@@ -1,2 +1,3 @@
 # Denextel-Python-Tools
-Denextel tools for Python
+Graphics tools for Python 3
+2018 Denextel
