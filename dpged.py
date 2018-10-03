@@ -1,9 +1,20 @@
-#
-#
-#
-#
+# Denextel Python Graphics Engine Display
+# DPGED.PY
+# 2018 Denextel, 2018 Rygel Dagenais
+# Part of the DenextelPythonScreenKit 
+# version = 0.1
+
+__version__ = 0.1
 from tkinter import Tk, Canvas, Frame, BOTH
-def shex(n):
+def shex(number):
+    """ Convert numbers from 0 to 255 to 2 digit hexadecimal numbers (for RGB purposes)
+Use:
+  0 -> 00
+255 -> ff
+ 16 -> 10
+
+Used for converting RGB colours to hex
+"""
     a = hex(n)
     a = str(a)
     b = list(a)
@@ -15,7 +26,7 @@ def shex(n):
         c = b[0] + b[1]
     return c
 
-class Example(Frame):
+class Screen(Frame):
   
     def __init__(self,mod=''):
         if mod != 'p':
@@ -49,7 +60,7 @@ def main(item,l,w):
     root.geometry("400x250+"+str(l)+"+"+str(w))
     root.mainloop()
 def mkcanvas(name,l,w):
-    exec(name+' = Example("p")')
+    exec(name+' = Screen("p")')
     exec('main(' + name + ', '+  str(l) + ', ' + str(w) + ')')
 #ex = Example()
 #main(Tk,ex)
