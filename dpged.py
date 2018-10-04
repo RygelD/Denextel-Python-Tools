@@ -3,7 +3,7 @@
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
 
-__version__ = '0.2.3'
+__version__ = '0.2.4'
 
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
@@ -59,6 +59,7 @@ def main(item,length,width,xy=(0,0)):
     root = Tk()
     ex = item
     root.geometry( str(length)+ "x" +str(width)+ "+"+str(xy[0])+"+" + str(xy[1]))
+    ex.initG()
     root.mainloop()
     
 def mkcanvas(name,length,width,xy=(0,0),screenname='DXL'):
