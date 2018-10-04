@@ -3,7 +3,7 @@
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
 
-__version__ = '0.2.2'
+__version__ = '0.2.2 PATCH 1'
 
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
@@ -59,7 +59,7 @@ def main(item,xy=(0,0),length,width):
     root.geometry(str(xy[0])+"x" + str(xy[1]) + "+"+str(length)+"+"+str(width))
     root.mainloop()
     
-def mkcanvas(name,xy=(0,0),length,width,screenname='DXL')
+def mkcanvas(name,xy=(0,0),length,width,screenname='DXL'):
     """ Safe method to make a screen, with name being the variable name containing the screen,
 length and width being the dimentions of the screen, screenname (defaulting to DXL)
 being the name of the canvas"""
