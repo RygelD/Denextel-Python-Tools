@@ -45,7 +45,7 @@ class Screen(Frame):
         self.canvas = Canvas(self)
         
     def drawpx(self,xy,rgb=(0,0,0)):
-        """ Draw a pixel at (x,y), colour (R,G,B) (with r g and b in decimal values (default colour is black)
+        """ Draws a pixel at (x,y), colour (R,G,B) (with r g and b in decimal values (default colour is black)
 """
         x = xy[0]
         y = xy[1]
@@ -57,6 +57,8 @@ class Screen(Frame):
         canvas.pack(fill=BOTH, expand=1)
         
     def drawrt(self,xytl,xybr,rgb=(0,0,0)):
+        """ Draws a rectangle using the top left coordinates (xytl, in (x,y))and the bottom right (xybr) coordinates. Colour (rgb) defaults to black.
+"""
         xr = xybr[0]
         xl = xytr[0]
         yr = xybr[1]
@@ -70,6 +72,8 @@ class Screen(Frame):
         canvas.pack(fill=BOTH, expand=1)
         
      def drawaq(self,xy,size,rgb=(0,0,0)):
+        """ Draws a square with the top right coordinates (xy, in (x,y)) with sides size pixels long. Colour (rgb) defaults to black.
+"""
         x = xy[0]
         y = xy[1]
         r = round(rgb(0))
