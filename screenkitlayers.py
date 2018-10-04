@@ -4,16 +4,23 @@
 # Part of the DenextelPythonScreenKit
 
 from dpged import *
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 def fill(item,xytocolour):
-  """ Fill pixels in xycolour on the canvas named item in a colour in xycolour
-  XYCOLOUR: [ ((x position, y position),(r value, g value, b value)) ]
+  """ Fill pixels in xycolour on the canvas named item in a colour (in xycolour: [ ((x position, y position),(r value, g value, b value)) ])
   """
   #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
   fn = xytocolour
   for i in fn:
     j = i[1]
     item.drawpx(i[0],j)
+def flayer(layer,xytocolour):
+  """ Fill pixels in layer 'Layer' with colour (in xycolour: [ ((x position, y position),(r value, g value, b value)) ])
+  """
+  #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
+  fn = xytocolour
+  for i in fn:
+    j = i[1]
+    layer.setpx(i[0],j)
 sets = []
 class Layer:
     def __init__(self,priority,xytocolour):
