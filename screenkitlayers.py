@@ -1,6 +1,14 @@
+# Denextel Python Layers Screen Kit for Graphic Displays
+# SCREENKITLAYERS.PY
+# 2018 Denextel, 2018 Rygel Dagenais
+# Part of the DenextelPythonScreenKit
+
 from dpged import *
 __version__ = '0.2.1'
 def fill(item,xytocolour):
+  """ Fill pixels in xycolour on the canvas named item in a colour in xycolour
+  XYCOLOUR: [ ((x position, y position),(r value, g value, b value)) ]
+  """
   #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
   fn = xytocolour
   for i in fn:
@@ -23,6 +31,8 @@ class Layer:
       self.s.append([xy,rgb])
       
 def ptop():
+  """ Returns layer consisting of pixels based on position in priority (top layer)
+  """
   sets = sorted(sets,key=lambda x: x.p )
   final = {}
   retlist = []
@@ -36,6 +46,8 @@ def ptop():
   return retlist
 
 def update_canvas_layer(item):
+  """ Updates canvas to top layer 
+"""
   fill(item,ptop())
  
 def sizeprint(item,xy,size,rgb=(0,0,0)):
