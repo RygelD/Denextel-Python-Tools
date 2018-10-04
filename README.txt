@@ -1,6 +1,7 @@
-# Denextel-Python-Tools
+Denextel-Python-Tools
 Graphics tools for Python 3
 2018 Denextel
+
 
 HOW TO USE DPGED - DENEXTEL'S PYTHON GRAPHICS ENGINE DISPLAY (v0.2.4):
 
