@@ -1,0 +1,15 @@
+From v0.2.2
+
+VERSION NAMES
+
+Untill version 1.0.0, use this format:
+
+v0.n.n.n => DPT n.n.n
+
+Thank-you.
+
+DPT 1.0 Alpha
+DXL Colour(v2.0)
+DXL Python Tools Colour(v2.1)
+
+
