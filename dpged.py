@@ -15,7 +15,7 @@ Use:
 
 Used for converting RGB colours to hex RGB colours (for code purposes)
 """
-    a = hex(n)
+    a = hex(number)
     a = str(a)
     b = list(a)
     b.pop(1)
@@ -49,9 +49,9 @@ class Screen(Frame):
 """
         x = xy[0]
         y = xy[1]
-        r = round(rgb(0))
-        g = round(rgb(1))
-        b = round(rgb(2))
+        r = round(rgb[0])
+        g = round(rgb[1])
+        b = round(rgb[2])
         canvas = self.canvas
         canvas.create_rectangle(x,y,x,y,outline='#'+str(shex(r))+str(shex(g))+str(shex(b)))        
         canvas.pack(fill=BOTH, expand=1)
@@ -71,7 +71,7 @@ class Screen(Frame):
         canvas.create_rectangle(xl,yl,xr,yr,outline=pr,fill=pr)        
         canvas.pack(fill=BOTH, expand=1)
         
-     def drawsq(self,xy,size,rgb=(0,0,0)):
+    def drawsq(self,xy,size,rgb=(0,0,0)):
         """ Draws a square with the top right coordinates (xy, in (x,y)) with sides size pixels long. Colour (rgb) defaults to black.
 """
         x = xy[0]
@@ -85,17 +85,18 @@ class Screen(Frame):
         canvas.pack(fill=BOTH, expand=1)
 
 
-def main(item,length,width,xy=(0,0)): 
+def main(item,length,width,xy=(0,0),opt=False): 
     root = Tk()
     ex = item
     root.geometry( str(length)+ "x" +str(width)+ "+"+str(xy[0])+"+" + str(xy[1]))
     ex.initG()
-    root.mainloop()
+    if opt:
+        root.mainloop()
     
-def mkcanvas(name,length,width,xy=(0,0),screenname='DXL'):
+def mkcanvas(length,width,xy=(0,0),screenname='DXL'):
     """ Safe method to make a screen, with name being the variable name containing the screen,
 length and width being the dimentions of the screen, xy being the x and y coordinates of the top left corner of the canvas (defaulting to (0,0), screenname (defaulting to DXL)
 being the name of the canvas"""
-    exec(name+' = Screen("p",  screenname )')
-    exec('main(' + name + ',' +  str(length) + ', ' + str(width) + ',' + str(xy) + ')')
-
+    name = Screen("p",  screenname )
+    main(name,length,width,xy)
+    return name
