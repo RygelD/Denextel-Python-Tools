@@ -1,5 +1,5 @@
 from dpged import *
-__version__ = '0.1.0-alpha'
+__version__ = '0.2.0-indev'
 def fill(item,xytocolour):
   #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
   fn = xytocolour
@@ -23,15 +23,17 @@ class Layer:
       self.s.append([xy,rgb])
       
 def ptop(item):
-  fights = []
+  final = {}
+  retlist = []
+  items = []
   for i in sets:
-    pixels = i.s
-    for j in pixels:
-      comp = (j[0],j[1],i.p)
-      fights.append(comp)
-  xytocolour = []
-  for i in fights:
-    while i in fights:
-      q = fights.remove(index(i))
-    xytocolour.append(q)
-  return xytocolour
+    pl = i.s
+    for j in pl:
+      final[j[0]] = j[1]
+  for i in final:
+    retlist.append([i,final[i]])
+  return retlist
+    
+ 
+  
+    
