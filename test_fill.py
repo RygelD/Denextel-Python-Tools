@@ -1,5 +1,5 @@
 from dpged import *
-__version__ = '0.2.0-indev'
+__version__ = '0.2.0-indev2'
 def fill(item,xytocolour):
   #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
   fn = xytocolour
@@ -23,6 +23,7 @@ class Layer:
       self.s.append([xy,rgb])
       
 def ptop(item):
+  sets = sorted(sets,key=lambda x: x.p )
   final = {}
   retlist = []
   items = []
