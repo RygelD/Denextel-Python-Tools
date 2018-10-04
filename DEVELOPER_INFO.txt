@@ -21,3 +21,5 @@ _________________
 0.2.2   | Fixed 1 error, 'position'
 0.2.3   | Fixed everything
 0.2.4   | Position + canvas added
+
+Print manuals
