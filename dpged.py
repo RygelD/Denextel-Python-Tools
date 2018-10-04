@@ -71,7 +71,7 @@ class Screen(Frame):
         canvas.create_rectangle(xl,yl,xr,yr,outline=pr,fill=pr)        
         canvas.pack(fill=BOTH, expand=1)
         
-     def drawaq(self,xy,size,rgb=(0,0,0)):
+     def drawsq(self,xy,size,rgb=(0,0,0)):
         """ Draws a square with the top right coordinates (xy, in (x,y)) with sides size pixels long. Colour (rgb) defaults to black.
 """
         x = xy[0]
