@@ -1,5 +1,5 @@
 from dpged import *
-__version__ = '0.2.0-indev2'
+__version__ = '0.2.1'
 def fill(item,xytocolour):
   #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
   fn = xytocolour
@@ -38,5 +38,8 @@ def ptop():
 def update_canvas_layer(item):
   fill(item,ptop())
  
-  
+def sizeprint(item,xy,size,rgb=(0,0,0)):
+  xy[0] = xy[0] * size
+  xy[1] = xy[1] * size
+  item.drawsq(xy,size,rgb)
     
