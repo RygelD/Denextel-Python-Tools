@@ -10,7 +10,7 @@ mkcanvas(variablename,length,width,xy=(x,y),screenname='DXL')
 from dpged import *
 from screenkitlayers import *
 MyCanvas = 0
-mkcanvas(MyCanvas,300,300,xy=(300,300),screenname='My First Canvas')
+MyCanvas = mkcanvas(300,300,xy=(300,300),screenname='My First Canvas')
 
 2. Make some layers!
 
