@@ -22,7 +22,7 @@ class Layer:
           self.s.remove(j[1])
       self.s.append([xy,rgb])
       
-def ptop(item):
+def ptop():
   sets = sorted(sets,key=lambda x: x.p )
   final = {}
   retlist = []
@@ -34,7 +34,9 @@ def ptop(item):
   for i in final:
     retlist.append([i,final[i]])
   return retlist
-    
+
+def update_canvas_layer(item):
+  fill(item,ptop())
  
   
     
