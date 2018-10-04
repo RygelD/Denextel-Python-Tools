@@ -4,24 +4,8 @@
 # Part of the DenextelPythonScreenKit
 
 from dpged import *
-__version__ = '0.2.2'
-def fill(item,xytocolour):
-  """ Fill pixels in xycolour on the canvas named item in a colour (in xycolour: [ ((x position, y position),(r value, g value, b value)) ])
-  """
-  #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
-  fn = xytocolour
-  for i in fn:
-    j = i[1]
-    item.drawpx(i[0],j)
-def flayer(layer,xytocolour):
-  """ Fill pixels in layer 'Layer' with colour (in xycolour: [ ((x position, y position),(r value, g value, b value)) ])
-  """
-  #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
-  fn = xytocolour
-  for i in fn:
-    j = i[1]
-    layer.setpx(i[0],j)
-sets = []
+__version__ = '0.2.3'
+
 class Layer:
     def __init__(self,priority,xytocolour):
       self.p = priority
@@ -37,6 +21,25 @@ class Layer:
           self.s.remove(j[1])
       self.s.append([xy,rgb])
       
+def fill(item,xytocolour):
+  """ Fill pixels in xycolour on the canvas named item in a colour (in xycolour: [ ((x position, y position),(r value, g value, b value)) ])
+  """
+  #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
+  fn = xytocolour
+  for i in fn:
+    j = i[1]
+    item.drawpx(i[0],j)
+    
+def multiadd(layer,xytocolour=[]):
+  """ Fill pixels in layer 'Layer' with colour (in xycolour: [ ((x position, y position),(r value, g value, b value)) ])
+  """
+  #Fill: Item = canvas name, xycolour is [ ((x,y),(r,g,b)) , ((),())]
+  fn = xytocolour
+  for i in fn:
+    j = i[1]
+    layer.setpx(i[0],j)
+sets = []
+     
 def ptop():
   """ Returns layer consisting of pixels based on position in priority (top layer)
   """
@@ -56,9 +59,25 @@ def update_canvas_layer(item):
   """ Updates canvas to top layer 
 """
   fill(item,ptop())
+  
+def update(item):
+  fill(item,ptop())
  
 def sizeprint(item,xy,size,rgb=(0,0,0)):
-  xy[0] = xy[0] * size
-  xy[1] = xy[1] * size
   item.drawsq(xy,size,rgb)
+
+def rectprint(item,xy,length,width,rgb=(0,0,0)):
+  xxyy = [xy[0]+length,xy[1]+width]
+  item.drawrt(xy,xxyy,rgb)
+  
+def sizeadd(layer,xy,size,rgb=(0,0,0)):
+  for i in range(xy[0],xy[0]+size):
+    for j in range(xy[1],xy[1]+size):
+     layer.setpx((i,j),rgb)
     
+def rectadd(layer,xy,length,width,rgb=(0,0,0)):
+  for i in range(xy[0],xy[0]+length):
+    for j in range(xy[1],xy[1]+width):
+     layer.setpx((i,j),rgb)   
+  
+  
