@@ -3,7 +3,7 @@
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
 
-__version__ = 0.2.1
+__version__ = '0.2.2'
 
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
@@ -13,7 +13,7 @@ Use:
 255 -> ff
  16 -> 10
 
-Used for converting RGB colours to hex
+Used for converting RGB colours to hex RGB colours (for code purposes)
 """
     a = hex(n)
     a = str(a)
@@ -43,24 +43,26 @@ class Screen(Frame):
         self.canvas = Canvas(self)
         
     def drawpx(self,xy,rgb=(0,0,0)):
-        """ Draw a pixel at (x,y), colour (R,G,B) (default colour is black)
+        """ Draw a pixel at (x,y), colour (R,G,B) (with r g and b in decimal values (default colour is black)
 """
-        r = rgb(0)
-        g = rgb(1)
-        b = rgb(2)
+        r = round(rgb(0))
+        g = round(rgb(1))
+        b = round(rgb(2))
         canvas = self.canvas
         canvas.create_rectangle(x,y,x,y,outline='#'+str(shex(r))+str(shex(g))+str(shex(b)))        
         canvas.pack(fill=BOTH, expand=1)
 
 
-def main(item,length,width): 
+def main(item,xy=(0,0),length,width): 
     root = Tk()
     ex = item
-    root.geometry("0x0+"+str(length)+"+"+str(width))
+    root.geometry(str(xy[0])+"x" + str(xy[1]) + "+"+str(length)+"+"+str(width))
     root.mainloop()
     
-def mkcanvas(name,length,width,screenname='')
-    """ Safe method to make a screen """
+def mkcanvas(name,xy=(0,0),length,width,screenname='DXL')
+    """ Safe method to make a screen, with name being the variable name containing the screen,
+length and width being the dimentions of the screen, screenname (defaulting to DXL)
+being the name of the canvas"""
     exec(name+' = Screen("p", '+screenname +')')
-    exec('main(' + name + ', '+  str(length) + ', ' + str(width) + ')')
+    exec('main(' + name + str(xy) + ', '+  str(length) + ', ' + str(width) + ')')
 
