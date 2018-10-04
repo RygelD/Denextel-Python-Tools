@@ -3,7 +3,7 @@
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
 
-__version__ = '0.2.2 PATCH 1'
+__version__ = '0.2.3'
 
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
