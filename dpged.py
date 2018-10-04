@@ -3,7 +3,7 @@
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
 
-__version__ = '0.2.4'
+__version__ = '0.2.4.1'
 
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
@@ -47,11 +47,25 @@ class Screen(Frame):
     def drawpx(self,xy,rgb=(0,0,0)):
         """ Draw a pixel at (x,y), colour (R,G,B) (with r g and b in decimal values (default colour is black)
 """
+        x = xy[0]
+        y = xy[1]
         r = round(rgb(0))
         g = round(rgb(1))
         b = round(rgb(2))
         canvas = self.canvas
         canvas.create_rectangle(x,y,x,y,outline='#'+str(shex(r))+str(shex(g))+str(shex(b)))        
+        canvas.pack(fill=BOTH, expand=1)
+    def drawsq(self,xytl,xybr,rgb=(0,0,0)):
+        xr = xybr[0]
+        xl = xytr[0]
+        yr = xybr[1]
+        yl = xyrl[1]
+        r = round(rgb(0))
+        g = round(rgb(1))
+        b = round(rgb(2))
+        pr = '#'+str(shex(r))+str(shex(g))+str(shex(b))
+        canvas = self.canvas
+        canvas.create_rectangle(xl,yl,xr,yr,outline=pr,fill=pr)        
         canvas.pack(fill=BOTH, expand=1)
 
 
