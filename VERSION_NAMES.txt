@@ -10,6 +10,14 @@ Thank-you.
 
 DPT 1.0 Alpha
 DXL Colour(v2.0)
-DXL Python Tools Colour(v2.1)
+DXL Python Tools Colour(v2.1,v2.2)
 
-
+DPGED   | Changes
+version |
+_________________
+0.1.0   | Start
+0.2.0   | Broken, colour
+0.2.1   | Fixed __version__, 'canvas names'
+0.2.2   | Fixed 1 error, 'position'
+0.2.3   | Fixed everything
+0.2.4   | Position + canvas added
