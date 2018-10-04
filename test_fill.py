@@ -26,6 +26,12 @@ def ptop(item):
   fights = []
   for i in sets:
     pixels = i.s
-    
-    comp = ()
-    
+    for j in pixels:
+      comp = (j[0],j[1],i.p)
+      fights.append(comp)
+  xytocolour = []
+  for i in fights:
+    while i in fights:
+      q = fights.remove(index(i))
+    xytocolour.append(q)
+  return xytocolour
