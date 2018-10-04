@@ -29,16 +29,18 @@ Used for converting RGB colours to hex RGB colours (for code purposes)
 
 class Screen(Frame):
   
-    def __init__(self,title='DXL',mod=''):
+    def __init__(self,mod='',title='DXL'):
+        self.title = title
         if mod != 'p':
             super().__init__()   
          
             self.initG() 
-        self.title = title
     def initG(self):
         """ Activates the canvas
 """
-        self.master.title(title)        
+        super().__init__()
+        self.master.title(self.title)        
+
         self.pack(fill=BOTH, expand=1)
         self.canvas = Canvas(self)
         
@@ -53,16 +55,16 @@ class Screen(Frame):
         canvas.pack(fill=BOTH, expand=1)
 
 
-def main(item,xy=(0,0),length,width): 
+def main(item,length,width,xy=(0,0)): 
     root = Tk()
     ex = item
-    root.geometry(str(xy[0])+"x" + str(xy[1]) + "+"+str(length)+"+"+str(width))
+    root.geometry( str(length)+ "x" +str(width)+ "+"+str(xy[0])+"+" + str(xy[1]))
     root.mainloop()
     
-def mkcanvas(name,xy=(0,0),length,width,screenname='DXL'):
+def mkcanvas(name,length,width,xy=(0,0),screenname='DXL'):
     """ Safe method to make a screen, with name being the variable name containing the screen,
-length and width being the dimentions of the screen, screenname (defaulting to DXL)
+length and width being the dimentions of the screen, xy being the x and y coordinates of the top left corner of the canvas (defaulting to (0,0), screenname (defaulting to DXL)
 being the name of the canvas"""
-    exec(name+' = Screen("p", '+screenname +')')
-    exec('main(' + name + str(xy) + ', '+  str(length) + ', ' + str(width) + ')')
+    exec(name+' = Screen("p",  screenname )')
+    exec('main(' + name + ',' +  str(length) + ', ' + str(width) + ',' + str(xy) + ')')
 
