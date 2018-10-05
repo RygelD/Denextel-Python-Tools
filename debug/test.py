@@ -1,3 +1,6 @@
+# Key binding test (game)
+#2018 Denextel, 2018 Rygel
+
 from tkinter import *
 import random
 window = Tk()
