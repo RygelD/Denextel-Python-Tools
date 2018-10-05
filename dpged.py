@@ -3,7 +3,7 @@
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
 
-__version__ = '0.2.4.2'
+__version__ = '0.2.4.3'
 
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
@@ -12,8 +12,6 @@ Use:
   0 -> 00
 255 -> ff
  16 -> 10
-
-Used for converting RGB colours to hex RGB colours (for code purposes)
 """
     a = hex(number)
     a = str(a)
@@ -92,7 +90,9 @@ def main(item,length,width,xy=(0,0),opt=False):
     ex.initG()
     if opt:
         root.mainloop()
-    
+def control():
+    root = Tk()
+    root.mainloop
 def mkcanvas(length,width,xy=(0,0),screenname='DXL'):
     """ Safe method to make a screen, with name being the variable name containing the screen,
 length and width being the dimentions of the screen, xy being the x and y coordinates of the top left corner of the canvas (defaulting to (0,0), screenname (defaulting to DXL)
