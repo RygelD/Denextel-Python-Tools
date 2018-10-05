@@ -5,7 +5,7 @@ Manual for creating drawings and images.
 1. Make your screen and import the files
   
   Choose a variable to assign your window to, where it is (defaults to 0,0), its dimentions and what the display name will be (defaults to 'DXL')
-mkcanvas(variablename,length,width,xy=(x,y),screenname='DXL')
+mkcanvas(length,width,xy=(x,y),screenname='DXL')
 
 from dpged import *
 from screenkitlayers import *
