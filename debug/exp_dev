@@ -1,0 +1,39 @@
+MSF Format
+
+BINARY
+
+To store a number:
+
+0001 + 4bit-bitref + number
+with bitref being the number of bits the number takes in binary, see table (1)
+
+To store a letter:
+0010 + 16bit-ascii 
+
+To store a boolean value:
+0011 + 2bit-bool
+To store a colour:
+
+0001
+
+
+
+
+(1) Bitref table:
+
+0000 => no bits
+0001 => 1 bit
+0010 => 2 bits
+0011 => 4 bits
+0100 => 6 bits
+0101 => 8 bits
+0110 => 10 bits
+0111 => 12 bits
+1000 => 14 bits
+1001 => 16 bits
+1010 => 20 bits
+1011 => 32 bits
+1100 => 64 bits
+1101 => 128 b
+1110 => 256 b
+1111 => 512 b
