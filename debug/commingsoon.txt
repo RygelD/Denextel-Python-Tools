@@ -1,0 +1,9 @@
+Comming up in version 2.4:
+
+More user manuals
+
+Faster square + rectangle drawing (draws square directly on canvas at layer )
+
+Faster layering program
+
+(this file is going to be updated a lot)
