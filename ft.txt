@@ -1,0 +1,47 @@
+Goals for DPT 3.0 - Ground
+
+Completely new code
+
+
+Support for hexadecimal hash and decimal hash RGB colour
+Support for 3-9 dollar, letter and ternary dollar MDXL colour
+
+Style:
+
+class Screen:
+    __init__(dimentions,xy=(0,0),title='Python DXL Window)
+    start()
+    pixel(xy,colour,size=1)
+    rectangle(dimentions,colour)
+    addall(dxc)
+class Layer:
+    __init__(priority)
+    addpixel(xy,colour,size=1)
+    addsquare(dimentions,colour)
+    add(dxc)
+    
+    
+    
+xycolour format - item = ((x,y),(r,g,b))
+dxc format - item = (x,y,colour) - Colour can be '#255255255', '(255,255,255)', '#FFFFFF', '(FF,FF,FF)', '#FFF', '(F,F,F)', '$222', '$28', '.'
+
+
+
+
+COLOUR
+
+#255255255 #FFFFFF #FFF $222 $28 .
+#000000000 #000000 #000 $000 $00 q
+
+
+
+
+Letter Table:
+
+R = Table, G = Column, B = Row
+
+  0 1 2     0 1 2     0 1 2 
+0 q w e   0 r t y   0 u i o
+1 a s d   1 f g h   1 j k l
+2 z x c   2 v b n   2 m , .
+
