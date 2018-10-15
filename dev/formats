@@ -1,0 +1,21 @@
+Colour formats:
+  rgb-255 (0,0,0)    => (255,255,255)
+  rgb+255 #000000000 => #255255255
+  rgb-FF  [0,0,0]    => [FF,FF,FF]
+  rgb+FF  #000000    => #FFFFFF  
+  rgb-F   {0,0,0}    => {F,F,F}
+  rgb+F   #000       => #FFF
+  rgb-3   <0,0,0>    => <2,2,2
+  rgb+3   $000       => $222
+  rgb-3L  q          => .
+
+Pixel colour storage formats:
+  xycolour - Current format
+  dxc      - Future format
+  
+xycolour - [...] containing (...)'s, ((x,y),rgb-255)
+dxc      - [...] containing (...)'s, (x,y,'<anycolourformat>',mod)
+
+DXC - Faster drawing and storage
+  
+  
