@@ -1,2 +1,3 @@
 Denextel ScreenKit In Development
-Updated Formats to New Universal Denextel Bitfile Formats
+File Formaats: New Universal Denextel Bitfile Formats 
+ScreenKit version 0.1 Indev
