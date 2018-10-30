@@ -67,7 +67,7 @@ Mark 2 not-is-empty pixels with 0 then 1 for next
 COLOUR - 32 colour (5 bit) 
 0 => 26:
      Take the number in binary, switch it to terenary
-     For each digit, if it's 0, switch it to 00; 1, put it at 7b; and 2, put it at ff
+     For each digit, if it's 0, switch it to 00; 1, put it at 7f; and 2, put it at ff
      Return the rgb hex value.
 27: Light Grey
 28: Dark Grey
