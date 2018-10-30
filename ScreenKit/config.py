@@ -1,3 +1,6 @@
+# Configuration Script
+#
+
 from string import ascii_letters as ABC
 from random import choice 
 import os
@@ -55,7 +58,7 @@ def fdd(f=None,comp=0):
         y = out()
     else:
       out(1)
-print('NOTICE: This program will be deleted after execution. Press Ctrl-D to exit and keep this file.')
+print('NOTICE: This program will be deleted after execution. Press Ctrl-D to exit and keep this file (other files may not work)')
 
 if os.path.exists(os.path.dirname(os.getcwd())+'dev'):
   a = os.path.dirname(os.getcwd())+'dev'        
@@ -132,6 +135,8 @@ d.write('''def fdd(f=None,comp=0):
       while y != 1:
         y = out()
     else:
-      out(1)''')
+      out(1)
+    active = True ''')
+    
 d.close()
         
