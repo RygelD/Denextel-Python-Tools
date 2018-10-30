@@ -1,6 +1,7 @@
 # Configuration Script
 #
-
+__version__ = 0.1
+RELEASE = 0.1
 from string import ascii_letters as ABC
 from random import choice 
 import os
