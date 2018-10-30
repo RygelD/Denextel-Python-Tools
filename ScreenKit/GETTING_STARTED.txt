@@ -1,0 +1,8 @@
+To begin, decide whether or not you want to keep the '/dev' files. These files are mainly notes on each file format and encodment
+standards. You do not need these unless you are thinking of making a homebrew version of ScreenKit. This folder also contains tests
+for some programs (they are like tech demos, (kind-of) fun, but completely useless (unless you are still making your homebrew 
+version)).
+
+Execute config.py (and type the confirmation code the right way to delete dev (if you made a mistake, press Ctrl-D and try
+again, it should say 'Dev deleted', OR type it wrong to keep dev) and wait for it to finish. Then, deletion.py will be executable. 
+Execute burn_Getting_Started.py to delete this file and itself after you completed setup.
