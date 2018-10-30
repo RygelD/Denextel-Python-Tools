@@ -1,7 +1,22 @@
-NOTICE: These formats have the capacity to be extremly more memory efficent than they are now (as instead of modifing bits of a file, I am stuck using Unicode charecters to represent them, which take up more bits than I want. More efficent unicode use will follow in future updates).
+NOTICE: These formats have the capacity to be extremly more memory efficent than they are now (as instead of modifing bits of a 
+file, I am stuck using Unicode charecters to represent them, which take up more bits than I want. More efficent unicode use will 
+follow in future updates).
 
+NEW UNIVERSAL DENEXTEL BITFILE FORMATS (.dubf)
 
+For empty file purposes:
+.def (Denextel Empty File)
 
+For colour and matrix purposes:
+.dca (Denextel Colour Array)  
+See: Denextel Colour Array
+
+For ASCII text files:
+.dtf (Denextel Text File) 
+Uses DSTE (Denextel Standard Text Encodement, a version of ASCII)
+
+For editable files of just bits:
+.deb (Denextel Editable Bitfile)
 
 
 
@@ -24,7 +39,46 @@ DSTE (Denextel Standard Text Encodement, a version of ASCII)
   tx - Start of title
   ef - End of file
   nl - New line
-  
+ 
+
+Denextel Colour Array
+At the start of the file:
+    <ColourLevel>,<CoordinateLevel>
+<ColourLevel> - 2 bits
+00: <colour> pixel trait
+01: <colour> and <cdata> pixel traits
+10: <greyscale> pixel trait
+11: <greyscale> and <gsdata> pixel traits
+<CoordinateLevel> - 2 bits
+00: Nothing
+01: <pdata> trait
+10: <xy> pixel trait and <override> traits
+11: <xy> and <xydata> traits
+
+For Pixels: 
+<isempty>
+0: <isempty>-<next> -|- << Next Pixel >>
+1: <isempty>-{<cdata>/<gsdata>}-(<colour>/<greyscale>)-{<xydata>/<override>}-{<xy>/<pdata>}-<next> -|- << Next Pixel >>
+
+{} - Some formats don't have either
+
+Mark 2 not-is-empty pixels with 0 then 1 for next
+
+COLOUR - 32 colour (5 bit) 
+0 => 26:
+     Take the number in binary, switch it to terenary
+     For each digit, if it's 0, switch it to 00; 1, put it at 7b; and 2, put it at ff
+     Return the rgb hex value.
+27: Light Grey
+28: Dark Grey
+29: Light Brown
+30: Dark Brown
+31: Transparent (Alpha)
+5/8ths of a byte
+
+GREYSCALE - 8 colour (3 bit)
+0 => 6 :  (255,255,255) * x/6
+7: Transparent (Alpha)
 
 
 
