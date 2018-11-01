@@ -1,8 +1,8 @@
 from Tkinter import *
-#Supported hash() colour formats: (255,255,255), #ffffff, <o4colourname>
+#Supported hashtag() colour formats: (255,255,255), #ffffff, <o4colourname>
 
 class Screen:
-  def __init__(geometry=(300,300),placement=(0,0),title='Screen')
+  def __init__(self,geometry=(300,300),placement=(0,0),title='Screen')
     master = Tk()
     a = Canvas(master,geometry[0],geometry[1])
     geometry = str(geometry[0])+'x'+str(geometry[1])+'+'+str(placement[0])+'+'+str(placement[1])
@@ -11,24 +11,32 @@ class Screen:
     self.m = master
     self.type = 'Screen'
     go()
-  def go():
+  def go(self):
     x = start_window(self.m)
     self.m.mainloop()
   
 class Layer:
-  def __init__(priority):
+  def __init__(self,priority):
     self.priority = priority
     self.type = 'Layer'
     self.items = []
   
+  
 class Array:
-  def __init__(colourret=[]):
+  def __init__(self,colourret=[]):
     self.px = colourret
+    self.type = 'a'
 class Square:
-  def __init__(base=100, colour='black'):
+  def __init__(self,base=100, colour='black'):
+    self.px = [base,colour]
+    self.type = 's'
+#class Rect:
+#  def __init__(coordtop
+    
 #def paste(target,item,position):
  # if target.type == 'Layer'
-  
+def getinfo(target):
+    return [target.px,target.type]  
 def move(target,item,position):
   target.coords(item,position)
 
@@ -45,7 +53,7 @@ def cut(target,item):
 def clear(target):
   target.delete(ALL)
  
-def hash(colour):
+def hashtag(colour):
   colour = str(colour)
   n = 0
   if colour[0] == '(':
