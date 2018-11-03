@@ -30,13 +30,27 @@ class Square:
   def __init__(self,base=100, colour='black'):
     self.px = [base,colour]
     self.type = 's'
-#class Rect:
-#  def __init__(coordtop
-    
-#def paste(target,item,position):
- # if target.type == 'Layer'
+class Rect:
+  def __init__(self,base=200,height=100,colour='black'):
+    self.px = [base,height,colour]
+    self.type= 'r'
+class Line:
+  def __init__(self,length=100,direction=1,colour='black'):
+    self.px = [length, direction, colour]
+    self.type = 'l'
+def paste(target,item,position):
+  if target.type == 'Layer':
+    target.items.append(item)
+  elif target.type == 'Screen':
+    if item.type == 'l':
+      if direction == 1:
+        end = position + item.length
+        #WORK
+      target.draw_line([],fill=hashtag(item.px[1]))
+      
 def getinfo(target):
     return [target.px,target.type]  
+  
 def move(target,item,position):
   target.coords(item,position)
 
