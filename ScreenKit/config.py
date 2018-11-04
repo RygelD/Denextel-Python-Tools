@@ -17,8 +17,8 @@ def fdd(f=None,comp=0):
     else:
       m = 'Moving on\n'
     if f != None:
-      a = input('Path to file: ')
-      b = input('Retype path to file: ')
+      a = input('File Name: \n')
+      b = input('Retype File Name: \n')
     else:
       a = f
       b = f
