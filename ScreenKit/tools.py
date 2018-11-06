@@ -10,6 +10,8 @@ class Screen:
     master.geometry(geometry)
     self.m = master
     self.type = 'Screen'
+    self.product = ''
+    self.note = '@s'
     go()
   def go(self):
     x = start_window(self.m)
@@ -19,6 +21,7 @@ class Layer:
   def __init__(self,priority):
     self.priority = priority
     self.type = 'Layer'
+    self.note = '@l
     self.items = []
   
   
@@ -38,15 +41,16 @@ class Line:
   def __init__(self,length=100,direction=1,colour='black'):
     self.px = [length, direction, colour]
     self.type = 'l'
+    
 def paste(target,item,position):
   if target.type == 'Layer':
-    target.items.append(item)
+    target.items.append(item.px)
   elif target.type == 'Screen':
     if item.type == 'l':
       if direction == 1:
         end = position + item.length
         #WORK
-      target.draw_line([],fill=hashtag(item.px[1]))
+      item.product = target.draw_line([],fill=hashtag(item.px[1]))
       
 def getinfo(target):
     return [target.px,target.type]  
@@ -55,7 +59,7 @@ def move(target,item,position):
   target.coords(item,position)
 
 def delete(target,item):
-  target.delete(item)
+  target.delete(item.product)
 
 def copy(item):
   return item
