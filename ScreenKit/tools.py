@@ -23,6 +23,7 @@ class Layer:
     self.type = 'Layer'
     self.note = '@l
     self.items = []
+    self.product = ''
   
   
 class Array:
@@ -30,21 +31,25 @@ class Array:
     self.px = colourret
     self.type = 'a'
     self.note = '@a'
+    self.product = ''
 class Square:
   def __init__(self,base=100, colour='black'):
     self.px = [base,colour]
     self.type = 's'
     self.note = '@o'
+    self.product = ''
 class Rect:
   def __init__(self,base=200,height=100,colour='black'):
     self.px = [base,height,colour]
     self.type= 'r'
     self.note = '@o'
+    self.product = ''
 class Line:
   def __init__(self,length=100,direction=1,colour='black'):
     self.px = [length, direction, colour]
     self.type = 'l'
     self.note = '@o'
+    self.product = ''
     
 def paste(target,item,position):
   if target.type == 'Layer':
