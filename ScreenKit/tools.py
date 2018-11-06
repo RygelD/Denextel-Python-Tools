@@ -29,7 +29,7 @@ class Array:
   def __init__(self,colourret=[]):
     self.px = colourret
     self.type = 'a'
-    self.note = '@o'
+    self.note = '@a'
 class Square:
   def __init__(self,base=100, colour='black'):
     self.px = [base,colour]
