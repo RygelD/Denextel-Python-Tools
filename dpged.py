@@ -3,7 +3,7 @@
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
 
-__version__ = '0.2.4.3'
+__version__ = '0.2.4.4'
 
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
@@ -58,12 +58,12 @@ class Screen(Frame):
         """ Draws a rectangle using the top left coordinates (xytl, in (x,y))and the bottom right (xybr) coordinates. Colour (rgb) defaults to black.
 """
         xr = xybr[0]
-        xl = xytr[0]
+        xl = xytl[0]
         yr = xybr[1]
-        yl = xyrl[1]
-        r = round(rgb(0))
-        g = round(rgb(1))
-        b = round(rgb(2))
+        yl = xytl[1]
+        r = round(rgb[0])
+        g = round(rgb[1])
+        b = round(rgb[2])
         pr = '#'+str(shex(r))+str(shex(g))+str(shex(b))
         canvas = self.canvas
         canvas.create_rectangle(xl,yl,xr,yr,outline=pr,fill=pr)        
@@ -74,9 +74,9 @@ class Screen(Frame):
 """
         x = xy[0]
         y = xy[1]
-        r = round(rgb(0))
-        g = round(rgb(1))
-        b = round(rgb(2))
+        r = round(rgb[0])
+        g = round(rgb[1])
+        b = round(rgb[2])
         pr = '#'+str(shex(r))+str(shex(g))+str(shex(b))
         canvas = self.canvas
         canvas.create_rectangle(x,y,x+size,y+size,outline=pr,fill=pr)        
@@ -92,11 +92,3 @@ def main(item,length,width,xy=(0,0),opt=False):
         root.mainloop()
 def control():
     root = Tk()
-    root.mainloop
-def mkcanvas(length,width,xy=(0,0),screenname='DXL'):
-    """ Safe method to make a screen, with name being the variable name containing the screen,
-length and width being the dimentions of the screen, xy being the x and y coordinates of the top left corner of the canvas (defaulting to (0,0), screenname (defaulting to DXL)
-being the name of the canvas"""
-    name = Screen("p",  screenname )
-    main(name,length,width,xy)
-    return name
