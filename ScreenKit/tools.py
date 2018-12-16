@@ -1,8 +1,8 @@
-from Tkinter import *
+from tkinter import *
 #Supported hashtag() colour formats: (255,255,255), #ffffff, <o4colourname>
 
 class Screen:
-  def __init__(self,geometry=(300,300),placement=(0,0),title='Screen')
+  def __init__(self,geometry=(300,300),placement=(0,0),title='Screen'):
     master = Tk()
     a = Canvas(master,geometry[0],geometry[1])
     geometry = str(geometry[0])+'x'+str(geometry[1])+'+'+str(placement[0])+'+'+str(placement[1])
@@ -10,8 +10,6 @@ class Screen:
     master.geometry(geometry)
     self.m = master
     self.type = 'Screen'
-    self.product = ''
-    self.note = '@s'
     go()
   def go(self):
     x = start_window(self.m)
@@ -21,54 +19,29 @@ class Layer:
   def __init__(self,priority):
     self.priority = priority
     self.type = 'Layer'
-    self.note = '@l
     self.items = []
-    self.product = ''
   
   
 class Array:
   def __init__(self,colourret=[]):
     self.px = colourret
     self.type = 'a'
-    self.note = '@a'
-    self.product = ''
 class Square:
   def __init__(self,base=100, colour='black'):
     self.px = [base,colour]
     self.type = 's'
-    self.note = '@o'
-    self.product = ''
-class Rect:
-  def __init__(self,base=200,height=100,colour='black'):
-    self.px = [base,height,colour]
-    self.type= 'r'
-    self.note = '@o'
-    self.product = ''
-class Line:
-  def __init__(self,length=100,direction=1,colour='black'):
-    self.px = [length, direction, colour]
-    self.type = 'l'
-    self.note = '@o'
-    self.product = ''
+#class Rect:
+#  def __init__(coordtop
     
-def paste(target,item,position):
-  if target.type == 'Layer':
-    target.items.append(item.px)
-  elif target.type == 'Screen':
-    if item.type == 'l':
-      if direction == 1:
-        end = position + item.length
-        #WORK
-      item.product = target.draw_line([],fill=hashtag(item.px[1]))
-      
+#def paste(target,item,position):
+ # if target.type == 'Layer'
 def getinfo(target):
     return [target.px,target.type]  
-  
 def move(target,item,position):
   target.coords(item,position)
 
 def delete(target,item):
-  target.delete(item.product)
+  target.delete(item)
 
 def copy(item):
   return item
@@ -82,42 +55,39 @@ def clear(target):
  
 def hashtag(colour):
   colour = str(colour)
-  n = 0
   if colour[0] == '(':
+    n = 0
     if colour[2] == ',':
       i = colour[1]
-      n = -2
+      n = 3
     elif colour[3] == ',':
       i = colour[1] + colour[2]
-      n = -1
+      n = 4
     elif colour[4] == ',':
       i = colour[1] + colour[2] + colour[3]
-      n = 0
-    if colour[6+n] == ',':
-      j = colour[6+n]
-      n -= 2
-    elif colour[7+n] == ',':
-      j = colour[6+n] + colour[7+n]
-      n -= 1
-    elif colour[8+n] == ',':
-      j = colour[6+n] + colour[7+n] + colour[8+n]
-      n += 0
-    if colour[10+n] == ')':
-      k = colour[10+n]
-      n -= 2
-    elif colour[11+n] == ')':
-      k = colour[10+n] + colour[11+n]
-      n -= 1
-    elif colour[12+n] == ')':
-      k = colour[10+n] + colour[11+n] + colour[12+n]
-      n += 0
-    return '#' + colourhex(i) + colourhex(j) + colourhex(k)
+      n = 5
+    if colour[1+n+1] == ',':
+      j = colour[n+1]
+      n += 2
+    elif colour[2+n+1] == ',':
+      j = colour[n+1] + colour[1+n+1]
+      n += 3
+    elif colour[3+n+1] == ',':
+      j = colour[n+1] + colour[1+n+1] + colour[2+n+1]
+      n += 4
+    if colour[1+n+2] == ')':
+      k = colour[n+2]
+    elif colour[2+n+2] == ')':
+      k = colour[n+2] + colour[1+n+2]
+    elif colour[3+n+2] == ')':
+      k = colour[n+2] + colour[1+n+2] + colour[2+n+2]
+    return '#' + colourhex(int(i)) + colourhex(int(j)) + colourhex(int(k))
   elif colour[0] == '#':
     return colour
   else:
     T = False
     tz = ['BLACK','FOREST','GREEN','NAVY','TEAL','OCEAN','BLUE','AQUA','CYAN']
-    ty = ['MAHAGONY','OLIVE','LIME','VIOLET','GREY','GRASS',PURPLE','PERIWINKLE','SKY']
+    ty = ['MAHAGONY','OLIVE','LIME','VIOLET','GREY','GRASS','PURPLE','PERIWINKLE','SKY']
     tx = ['RED','ORANGE','YELLOW','PINK','SALMON','SAND','MAGENTA','CARTON','WHITE']
     if colour.upper() in tz:
       r = '00'
@@ -134,17 +104,17 @@ def hashtag(colour):
     if T:
       d = y.index(colour.upper())
       if d % 3 == 0:
-        b = '00'
-      elif d % 3 == 1:
-        b = '7f'
-      else:
-        b = 'ff'
-      if d // 3 == 0:
         g = '00'
-      elif d //3 == 1:
+      elif d % 3 == 1:
         g = '7f'
       else:
         g = 'ff'
+      if d // 3 == 0:
+        b = '00'
+      elif d //3 == 1:
+        b = '7f'
+      else:
+        b = 'ff'
       return '#' + r + g + b
     else:
       w = ['LEATHER','BROWN','DARK','LIGHT']
