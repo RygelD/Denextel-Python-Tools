@@ -3,7 +3,7 @@
 # 2018 Denextel, 2018 Rygel Dagenais
 # Part of the DenextelPythonScreenKit 
 
-__version__ = '0.2.4.4'
+__version__ = '0.2.4.4 indev 2'
 
 from tkinter import Tk, Canvas, Frame, BOTH
 def shex(number):
@@ -66,7 +66,7 @@ class Screen(Frame):
         b = round(rgb[2])
         pr = '#'+str(shex(r))+str(shex(g))+str(shex(b))
         canvas = self.canvas
-        canvas.create_rectangle(xl,yl,xr,yr,outline=pr,fill=pr)        
+        canvas.create_rectangle(xl,yl,xr,yr,outline='',fill=pr)        
         canvas.pack(fill=BOTH, expand=1)
         
     def drawsq(self,xy,size,rgb=(0,0,0)):
@@ -79,7 +79,7 @@ class Screen(Frame):
         b = round(rgb[2])
         pr = '#'+str(shex(r))+str(shex(g))+str(shex(b))
         canvas = self.canvas
-        canvas.create_rectangle(x,y,x+size,y+size,outline=pr,fill=pr)        
+        canvas.create_rectangle(x,y,x+size,y+size,outline='',fill=pr)        
         canvas.pack(fill=BOTH, expand=1)
 
 
@@ -92,3 +92,11 @@ def main(item,length,width,xy=(0,0),opt=False):
         root.mainloop()
 def control():
     root = Tk()
+    root.mainloop
+def mkcanvas(length,width,xy=(0,0),screenname='DXL'):
+    """ Safe method to make a screen, with name being the variable name containing the screen,
+length and width being the dimentions of the screen, xy being the x and y coordinates of the top left corner of the canvas (defaulting to (0,0), screenname (defaulting to DXL)
+being the name of the canvas"""
+    name = Screen("p",  screenname )
+    main(name,length,width,xy)
+    return name
