@@ -92,7 +92,7 @@ def main(item,length,width,xy=(0,0),opt=False):
         root.mainloop()
 def control():
     root = Tk()
-    root.mainloop
+    root.mainloop()
 def mkcanvas(length,width,xy=(0,0),screenname='DXL'):
     """ Safe method to make a screen, with name being the variable name containing the screen,
 length and width being the dimentions of the screen, xy being the x and y coordinates of the top left corner of the canvas (defaulting to (0,0), screenname (defaulting to DXL)
